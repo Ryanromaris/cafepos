@@ -1,0 +1,18 @@
+.header {
+  font-size: 50px;
+  justify-items: center;
+}
+
+.main_container {
+  display: flex;
+  justify-content: center;
+}
+.main_box {
+  width: 500px;
+  height: 500px;
+  border: 1px black solid;
+}
+
+.item_box {
+  border: 1px black solid;
+}

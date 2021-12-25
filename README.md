@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# 키즈노트 프론트엔드 개발자 채용 과제(타입 2)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 목표: 커피 전문점의 POS 앱을 웹기술을 활용하여 개발
 
-## Available Scripts
+### 1. 구현 내용 : 하나의 페이지에 4개의 화면으로 구성.
 
-In the project directory, you can run:
+- 메뉴 선택 화면 (홈 화면)
+- 쿠폰 선택 화면
+- 결제하기 화면
+- 대기하기 화면
 
-### `npm start`
+  각 화면은 다음 화면으로 넘어가는 버튼이 있고 뒤로 갈 수 없다. <br />
+  각 화면에서 아무런 선택을 하지 않으면 다음 화면으로 넘어갈 수 없다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. 화면 세부 설명
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. 메뉴 선택 화면
 
-### `npm test`
+   - 각 메뉴의 + 버튼을 통해 구매할 음료를 추가할 수 있다
+   - 각 메뉴의 - 버튼을 통해 담겨있는 음료를 뺄 수 있다.
+   - 현재 담긴 음료를 화면 하단에서 확인할 수 있다.
+   - "메뉴선택 완료" 버튼을 통해 다음 화면으로 넘어간다.
+   - 아무것도 담지 않고 "메뉴선택 완료" 버튼을 누를 시, alert창으로 알려준다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+     <br />
 
-### `npm run build`
+2. 쿠폰 선택 화면
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   - 5%, 7%, 10% 쿠폰 중 하나를 고를 수 있다.
+   - 아무것도 고르지 않고 "쿠폰선택 완료" 버튼을 누를 시, alert창으로 알려준다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+     <br />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. 결제하기 화면
 
-### `npm run eject`
+   - 결제 방법을 선택할 수 있다. (현금 / 카드)
+   - 결제하려는 상품의 이름, 수량, 할인가격이 적용된 최종 가격과 총 합계를 보여준다.
+   - "결제하기" 버튼을 통해 다음 화면으로 넘어갈 수 있다.
+   - 결제방법을 고르지 않고 "결제하기" 버튼을 누를 시, alert창으로 알려준다.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+     <br />
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. 대기하기 화면
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   - 주문 정보를 띄워준다.
+   - "홈으로 돌아가기 버튼"을 통해 처음 화면으로 넘어갈 수 있다.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+     <br />
 
-## Learn More
+### 3. 구현 방법
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. state로 관리되는 값들.
+   - cart: 현재 담긴 음료의 이름과 수량
+   - stateOfPage: 현재 보여지는 화면
+   - coupon: 선택한 쿠폰의 종류
+   - cardOrCash: 선택한 결제 방법
+2. 컴포넌트 구성
+   ![컴포넌트](https://media.vlpt.us/images/ryanromaris/post/0e06f620-bc15-4b5b-8934-7760b97fbaca/Flowchart.jpg)
